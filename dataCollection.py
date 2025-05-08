@@ -10,6 +10,22 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import schedule
 import time
 from dotenv import load_dotenv
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+import random
+
+# ========== Clean Data ==========
+def clean_stock_data(df):
+    df.drop_duplicates(inplace=True)
+    df['datetime'] = pd.to_datetime(df['datetime'])
+    df.sort_values(by='datetime', inplace=True)
+    df.interpolate(method='linear', inplace=True)
+    # Clip values beyond 3 standard deviations
+    for col in ['open', 'high', 'low', 'close', 'volume']:
+        df[col] = df[col].clip(lower=df[col].mean() - 3*df[col].std(), upper=df[col].mean() + 3*df[col].std())
+    df[['open', 'high', 'low', 'close', 'volume']] = scaler.fit_transform(df[['open', 'high', 'low', 'close', 'volume']])
+    return df
+
 
 # ========== Logging Setup ==========
 os.makedirs("logs", exist_ok=True)
@@ -42,7 +58,7 @@ def fetch_share_data(shareName, retries=3, delay=5):
     for attempt in range(retries):
         try:
             stock = yf.Ticker(shareName)
-            hist = stock.history(period="1h", interval="1m")
+            hist = stock.history(period="1d", interval="5m")
             hist = hist.reset_index()
             hist['symbol'] = shareName
             hist['fetched_at'] = datetime.now()
@@ -99,10 +115,16 @@ def job():
             try:
                 data = fetch_share_data(name)
                 if not data.empty:
-                    data.to_sql(table_name, conn, if_exists="append", index=False)
-                    logging.info(f"Appended data for {name}")
+                    data = clean_stock_data(data)  # 🧹 Clean the data
+                    if not data.empty:  # Recheck if it's still not empty after cleaning
+                        data.to_sql(table_name, conn, if_exists="append", index=False)
+                        logging.info(f"Appended cleaned data for {name}")
+                    else:
+                        logging.info(f"Cleaned data is empty for {name}")
                 else:
                     logging.info(f"No data returned for {name}")
+                # Add delay
+                time.sleep(random.uniform(1, 3))
             except Exception as e:
                 error_msg = f"Error fetching data for {name}: {e}"
                 logging.error(error_msg)
@@ -111,6 +133,7 @@ def job():
         conn.commit()
         conn.close()
         logging.info("Job completed successfully")
+        print('Job completed successfully')
 
     except Exception as e:
         crash_msg = f"Scheduler crashed: {e}"

@@ -31,3 +31,47 @@
 2025-05-05 08:49:52,836 - ERROR - Error fetching data for BHARTIARTL.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
 2025-05-05 08:49:53,639 - ERROR - Error fetching data for AXISBANK.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
 2025-05-05 08:49:54,310 - INFO - Job completed successfully
+2025-05-08 08:28:13,953 - WARNING - Retry 1 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:20,092 - WARNING - Retry 2 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:26,211 - WARNING - Retry 3 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:31,212 - ERROR - Error fetching data for RELIANCE.NS: All 3 attempts failed for RELIANCE.NS
+2025-05-08 08:28:33,301 - WARNING - Retry 1 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:39,433 - WARNING - Retry 2 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:45,656 - WARNING - Retry 3 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:50,658 - ERROR - Error fetching data for HDFCBANK.NS: All 3 attempts failed for HDFCBANK.NS
+2025-05-08 08:28:52,401 - WARNING - Retry 1 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:28:59,452 - WARNING - Retry 2 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:29:05,412 - WARNING - Retry 3 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:29:10,413 - ERROR - Error fetching data for ICICIBANK.NS: All 3 attempts failed for ICICIBANK.NS
+2025-05-08 08:29:13,162 - WARNING - Retry 1 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:29:19,667 - WARNING - Retry 2 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:29:25,652 - WARNING - Retry 3 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:29:30,652 - ERROR - Error fetching data for INFY.NS: All 3 attempts failed for INFY.NS
+2025-05-08 08:29:39,168 - WARNING - Retry 1 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:07,989 - WARNING - Retry 1 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:14,095 - WARNING - Retry 2 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:20,200 - WARNING - Retry 3 failed for RELIANCE.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:25,201 - ERROR - Error fetching data for RELIANCE.NS: All 3 attempts failed for RELIANCE.NS
+2025-05-08 08:30:26,822 - WARNING - Retry 1 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:33,282 - WARNING - Retry 2 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:39,622 - WARNING - Retry 3 failed for HDFCBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:44,624 - ERROR - Error fetching data for HDFCBANK.NS: All 3 attempts failed for HDFCBANK.NS
+2025-05-08 08:30:46,340 - WARNING - Retry 1 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:52,495 - WARNING - Retry 2 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:30:58,438 - WARNING - Retry 3 failed for ICICIBANK.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:03,438 - ERROR - Error fetching data for ICICIBANK.NS: All 3 attempts failed for ICICIBANK.NS
+2025-05-08 08:31:05,163 - WARNING - Retry 1 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:12,130 - WARNING - Retry 2 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:18,133 - WARNING - Retry 3 failed for INFY.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:23,134 - ERROR - Error fetching data for INFY.NS: All 3 attempts failed for INFY.NS
+2025-05-08 08:31:24,852 - WARNING - Retry 1 failed for TCS.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:31,621 - WARNING - Retry 2 failed for TCS.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:37,721 - WARNING - Retry 3 failed for TCS.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:42,722 - ERROR - Error fetching data for TCS.NS: All 3 attempts failed for TCS.NS
+2025-05-08 08:31:44,415 - WARNING - Retry 1 failed for HINDUNILVR.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:50,752 - WARNING - Retry 2 failed for HINDUNILVR.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:31:56,946 - WARNING - Retry 3 failed for HINDUNILVR.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:32:01,947 - ERROR - Error fetching data for HINDUNILVR.NS: All 3 attempts failed for HINDUNILVR.NS
+2025-05-08 08:32:04,150 - WARNING - Retry 1 failed for LT.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:32:10,060 - WARNING - Retry 2 failed for LT.NS: Too Many Requests. Rate limited. Try after a while.
+2025-05-08 08:32:16,314 - WARNING - Retry 3 failed for LT.NS: Too Many Requests. Rate limited. Try after a while.
