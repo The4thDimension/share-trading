@@ -13,6 +13,11 @@ from dotenv import load_dotenv
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 import random
+import mplfinance as mpf
+import pandas as pd
+import sqlite3
+from ta.trend import SMAIndicator
+import plotly.graph_objects as go
 
 # ========== Clean Data ==========
 def clean_stock_data(df):
@@ -63,6 +68,7 @@ def fetch_share_data(shareName, retries=3, delay=5):
             hist['symbol'] = shareName
             hist['fetched_at'] = datetime.now()
             hist.rename(columns={
+                'Datetime': 'datetime',
                 'Open': 'open',
                 'High': 'high',
                 'Low': 'low',
@@ -92,6 +98,41 @@ def job():
         shareNames = get_share_names_from_csv(csv_path)
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
+
+        df = pd.read_sql_query("SELECT * FROM stock_prices WHERE symbol='TCS.NS' ORDER BY datetime DESC LIMIT 100", conn)
+
+        # # Prepare DataFrame for mplfinance
+        # df['datetime'] = pd.to_datetime(df['datetime'])
+        # df.set_index('datetime', inplace=True)
+        # df = df[['open', 'high', 'low', 'close', 'volume']]
+        # df.sort_index(inplace=True)
+
+        # # Plot candlestick chart
+        # mpf.plot(df, type='candle', volume=True, title='TCS.NS Candlestick Chart', style='yahoo')
+
+        
+        # Simple Moving Average
+        sma = SMAIndicator(close=df['close'], window=14)
+        df['SMA14'] = sma.sma_indicator()
+
+        df['datetime'] = pd.to_datetime(df['datetime'])  # Step 1: ensure it's datetime type
+        df.set_index('datetime', inplace=True)           # Step 2: set it as index
+        df.sort_index(inplace=True)                      # Step 3 (optional): make sure it's sorted
+
+        # Plot with SMA
+        mpf.plot(df, type='candle', volume=True, style='yahoo', addplot=mpf.make_addplot(df['SMA14'], color='blue'), title='TCS.NS with 14-day SMA')
+
+        # Plot with plotly
+        # fig = go.Figure(data=[go.Candlestick(
+        # x=df.index,
+        # open=df['open'],
+        # high=df['high'],
+        # low=df['low'],
+        # close=df['close']
+        # )])
+
+        # fig.update_layout(title='TCS.NS Candlestick Chart (Interactive)', xaxis_title='Date', yaxis_title='Price')
+        # fig.show()
 
         cursor.execute(f"""
         CREATE TABLE IF NOT EXISTS {table_name} (
@@ -140,8 +181,10 @@ def job():
         logging.critical(crash_msg)
         send_telegram_alert(crash_msg)
 
-schedule.every().hour.do(job)
+# schedule.every().hour.do(job)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
+
+job()
