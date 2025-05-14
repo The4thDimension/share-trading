@@ -132,3 +132,14 @@
 2025-05-13 09:26:43,409 - ERROR - Error fetching data for BHARTIARTL.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
 2025-05-13 09:26:44,264 - ERROR - Error fetching data for AXISBANK.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
 2025-05-13 09:26:44,928 - INFO - Job completed successfully
+2025-05-14 08:25:56,956 - ERROR - Error fetching data for RELIANCE.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:25:58,392 - ERROR - Error fetching data for HDFCBANK.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:25:59,214 - ERROR - Error fetching data for ICICIBANK.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:00,073 - ERROR - Error fetching data for INFY.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:01,166 - ERROR - Error fetching data for TCS.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:02,037 - ERROR - Error fetching data for HINDUNILVR.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:02,947 - ERROR - Error fetching data for LT.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:03,841 - ERROR - Error fetching data for SBIN.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:04,650 - ERROR - Error fetching data for BHARTIARTL.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:05,472 - ERROR - Error fetching data for AXISBANK.NS: UNIQUE constraint failed: stock_prices.datetime, stock_prices.symbol
+2025-05-14 08:26:06,137 - INFO - Job completed successfully
